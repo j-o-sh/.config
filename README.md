@@ -73,6 +73,12 @@ Notes:
 
 > Uses [ripgrep](https://github.com/BurntSushi/ripgrep#installation) for the Grep part (`<leader> fg`)
 
+#### Treesitter
+
+[Nvim Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) provides Treesitter for Nvim.
+
+Treesitter is a code structure module. Basically somewhat LSP-like
+
 
 ### Unused but interesting Plugins
 
