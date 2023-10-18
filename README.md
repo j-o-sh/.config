@@ -10,6 +10,8 @@ It starts with `init.lua`.
 
 ### Plugins
 
+We are using the [Lazy](https://github.com/folke/lazy.nvim) plugin manager.
+
 ### Keymaps
 
 
