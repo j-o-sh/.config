@@ -27,6 +27,7 @@ require('lsp-setup')
 -- Window Options
 
 vim.wo.number = true
+require('apperance')
 
 -- Keymaps
 

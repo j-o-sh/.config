@@ -15,8 +15,6 @@ require('mason-lspconfig').setup({
     'clangd', 
     'cssls', 
     'gopls', 
-    'html', 
-    'jsonls', 
     'lua_ls', 
     'volar'
   },

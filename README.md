@@ -6,6 +6,15 @@ Custom setup, loosely based on the [Kickstart NVIM](https://github.com/nvim-lua/
 
 It starts with `init.lua`.
 
+
+### Dependencies
+
+These are the gathered dependencies to be able to run everything in Neovim (LSPs and stuff).
+
+* wget
+* cargo (rust)
+
+
 ### Directory Structure
 
 ### Plugins
