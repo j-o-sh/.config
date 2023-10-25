@@ -19,10 +19,14 @@ end
 
 pm(plugins)
 
+-- LSP Setup
+
+require('lsp-setup')
+
+
 -- Window Options
 
 vim.wo.number = true
-
 
 -- Keymaps
 

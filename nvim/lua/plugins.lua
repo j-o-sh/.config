@@ -1,8 +1,8 @@
 -- Plugin Configs go here
 
-return {
-  'tpope/vim-sleuth',
-  {
+
+function lspconf ()
+  return {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -17,24 +17,36 @@ return {
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
-  },
+  }
+end
 
-  {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
+function lspzero ()
+  return {
+    'VonHeikemen/lsp-zero.nvim',
     dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
 
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
 
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
-    },
-  },
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+      {'rafamadriz/friendly-snippets'},
+    }
+  }
+end
 
+return {
+  'tpope/vim-sleuth',
+  lspzero(),
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
