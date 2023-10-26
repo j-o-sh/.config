@@ -12,5 +12,7 @@ opt.incsearch = true
 opt.scrolloff = 8
 opt.colorcolumn = '80'
 
+vim.wo.foldmethod = 'indent'
+
 vim.cmd("colorscheme gruvbox")
 
