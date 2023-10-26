@@ -1,27 +1,40 @@
-local lsp_zero = require('lsp-zero')
+local lsp = require('lsp-zero')
+lsp.extend_lspconfig()
 
-lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp_zero.default_keymaps({buffer = bufnr})
+lsp.on_attach(function(client, bufnr)
+  lsp.default_keymaps({ buffer = bufnr })
+
+  local opts = { buffer = bufnr, remap = false }
+  local remap = require('remap')
+  remap.lsp(bufnr)
 end)
+
+require 'lspconfig'.sourcekit.setup {}
+lsp.setup()
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
-    'tsserver', 
-    'eslint', 
-    'bashls', 
-    'clangd', 
-    'cssls', 
-    'gopls', 
-    'lua_ls', 
+    'tsserver',
+    'eslint',
+    'bashls',
+    'clangd',
+    'cssls',
+    'gopls',
+    'lua_ls',
     'volar'
   },
   handlers = {
-    lsp_zero.default_setup,
+    lsp.default_setup,
   },
 })
 
-require("luasnip.loaders.from_vscode").lazy_load()
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
 
+cmp.setup({
+  mapping = {
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+  },
+})

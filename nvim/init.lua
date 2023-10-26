@@ -1,3 +1,10 @@
+-- Set leader keys first
+--
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- Plugins
+
 local plugins = require("plugins")
 
 -- Package Manager (lazy)
@@ -22,7 +29,7 @@ pm(plugins)
 -- LSP Setup
 
 require('lsp-setup')
-
+require('treesitter-setup')
 
 -- Window Options
 
@@ -30,21 +37,7 @@ vim.wo.number = true
 require('apperance')
 
 -- Keymaps
-
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-d>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-u>', { noremap = true })
-
-
---- Telescope
-
-local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
-vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
-vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
-
-
+local remap = require('remap')
+remap.global()
+remap.telescope()
 
