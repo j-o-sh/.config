@@ -4,7 +4,6 @@ lsp.extend_lspconfig()
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({ buffer = bufnr })
 
-  local opts = { buffer = bufnr, remap = false }
   local remap = require('remap')
   remap.lsp(bufnr)
 end)
@@ -21,6 +20,7 @@ require('mason-lspconfig').setup({
     'clangd',
     'cssls',
     'gopls',
+    'html',
     'lua_ls',
     'volar'
   },
@@ -29,12 +29,3 @@ require('mason-lspconfig').setup({
   },
 })
 
-local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
-
-cmp.setup({
-  mapping = {
-    ['<Tab>'] = cmp_action.luasnip_supertab(),
-    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-  },
-})

@@ -30,6 +30,7 @@ pm(plugins)
 
 require('lsp-setup')
 require('treesitter-setup')
+require("luasnip.loaders.from_vscode").lazy_load()
 
 -- Window Options
 
@@ -40,4 +41,5 @@ require('apperance')
 local remap = require('remap')
 remap.global()
 remap.telescope()
+remap.snip()
 

@@ -1,4 +1,4 @@
-local function globalkeys ()
+local function globalkeys()
   -- vim.g.mapleader = " "
   vim.api.nvim_set_keymap('n', '<C-j>', '<C-d>', { noremap = true })
   vim.api.nvim_set_keymap('n', '<C-k>', '<C-u>', { noremap = true })
@@ -18,16 +18,25 @@ local function telescopekeys()
 end
 
 -- LSP Bindings --
-local function lspkeys (buffer)
+local function lspkeys(buffer)
   vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
-  vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, 
-    {buffer = buffer, remap = false}
+  vim.keymap.set('n', '<leader>jd', vim.lsp.buf.definition,
+    { buffer = buffer, remap = false }
   )
 end
 
-return {
-  global = globalkeys, 
-  telescope = telescopekeys, 
-  lsp = lspkeys
-}
+-- Snippet Bindings --
+local function snip()
+  local opts = {}
+  vim.api.nvim_set_keymap('i', '<C-j>', '<Plug>luasnip-expand-or-jump', opts)
+  vim.api.nvim_set_keymap('i', '<C-k>', '<Plug>luasnip-jump-prev', opts)
+  vim.api.nvim_set_keymap('i', '<C-l>', '<Plug>luasnip-jump-next', opts)
+  vim.api.nvim_set_keymap('i', '<C-j>', '<Plug>luasnip-jump-out', opts)
+end
 
+return {
+  global = globalkeys,
+  telescope = telescopekeys,
+  lsp = lspkeys,
+  snip = snip
+}

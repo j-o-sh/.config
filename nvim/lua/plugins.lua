@@ -1,7 +1,7 @@
 -- Plugin Configs go here
 
 
-function lspconf ()
+function lspconf()
   return {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -20,26 +20,29 @@ function lspconf ()
   }
 end
 
-function lspzero ()
+function lspzero()
   return {
     'VonHeikemen/lsp-zero.nvim',
     dependencies = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
+      { 'neovim/nvim-lspconfig' },
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
 
       -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
 
       -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
+      {
+        'L3MON4D3/LuaSnip',
+        dependencies = { 'rafamadriz/friendly-snippets' },
+      },
+      { 'rafamadriz/friendly-snippets' },
     }
   }
 end
@@ -61,7 +64,7 @@ return {
     },
   },
 
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',    opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -87,6 +90,6 @@ return {
     },
     build = ':TSUpdate',
   },
-  { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...}
+  { "ellisonleao/gruvbox.nvim", priority = 1000,  config = true, opts = ... }
 }
 
