@@ -3,8 +3,8 @@ local function globalkeys()
   vim.api.nvim_set_keymap('n', '<C-j>', '<C-d>', { noremap = true })
   vim.api.nvim_set_keymap('n', '<C-k>', '<C-u>', { noremap = true })
   vim.keymap.set("n", "<leader>p", vim.cmd.Ex)
-  vim.keymap.set("n", "<leader>m", ":move +1<cr>")
-  vim.keymap.set("n", "<leader>n", ":move -2<cr>")
+  -- vim.keymap.set("n", "<leader>m", ":move +1<cr>")
+  -- vim.keymap.set("n", "<leader>n", ":move -2<cr>")
 end
 
 -- Telescope Bindings --

@@ -1,7 +1,9 @@
+local options = require 'options'
+
 -- Set leader keys first
 --
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = options.keys.leader
+vim.g.maplocalleader = options.keys.leader
 
 -- Plugins
 
@@ -34,10 +36,19 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 -- Window Options
 
-vim.wo.number = true
-require('apperance')
+vim.wo.number = options.apperance.number
+vim.opt.number = options.apperance.number
+
+for key, value in pairs(options.vim) do
+  vim.opt[key] = value
+end
+
+vim.cmd("colorscheme " .. options.apperance.colorscheme)
 
 -- Keymaps
+vim.keymap.set("n", options.keys.normal.movelineUp, ":move +1<cr>")
+vim.keymap.set("n", options.keys.normal.movelineDown, ":move -2<cr>")
+
 local remap = require('remap')
 remap.global()
 remap.telescope()
