@@ -22,7 +22,5 @@ end
 
 vim.cmd("colorscheme " .. options.apperance.colorscheme)
 
--- Keymaps
-vim.keymap.set("n", options.keys.normal.movelineUp, ":move +1<cr>")
-vim.keymap.set("n", options.keys.normal.movelineDown, ":move -2<cr>")
+require('remap')(options)
 
