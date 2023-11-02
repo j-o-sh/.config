@@ -31,12 +31,12 @@ return function (options)
   remap('<leader>/', fuzzybuffer, { desc = '[/] Fuzzily search in current buffer' })
 
   remap('<leader>gf', tele.git_files, { desc = 'Search [G]it [F]iles' })
-  remap('<leader>sf', tele.find_files, { desc = '[S]earch [F]iles' })
-  remap('<leader>sh', tele.help_tags, { desc = '[S]earch [H]elp' })
-  remap('<leader>sw', tele.grep_string, { desc = '[S]earch current [W]ord' })
-  remap('<leader>sg', tele.live_grep, { desc = '[S]earch by [G]rep' })
-  remap('<leader>sd', tele.diagnostics, { desc = '[S]earch [D]iagnostics' })
-  remap('<leader>sr', tele.resume, { desc = '[S]earch [R]esume' })
+  remap('<leader>ff', tele.find_files, { desc = '[F]earch [F]iles' })
+  remap('<leader>fh', tele.help_tags, { desc = '[F]ind [H]elp' })
+  remap('<leader>fw', tele.grep_string, { desc = '[F]ind current [W]ord' })
+  remap('<leader>fg', tele.live_grep, { desc = '[F]ind by [G]rep' })
+  remap('<leader>fd', tele.diagnostics, { desc = '[F]ind [D]iagnostics' })
+  remap('<leader>fr', tele.resume, { desc = '[F]ind [R]esume' })
 
   -- Diagnostic keymaps
   remap('[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
