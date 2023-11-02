@@ -20,7 +20,17 @@ vim.opt.rtp:prepend(lazypath)
 --
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
-require('lazy').setup({
+local function merge(...)
+  local r = {}
+  for _, part in ipairs({...}) do
+    for k, v in pairs(part) do
+      r[k] = v
+    end
+  end
+  return r
+end
+
+require('lazy').setup(merge({
   -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
@@ -178,7 +188,7 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
-}, {})
+}, require 'plugins'), {})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
