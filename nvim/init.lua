@@ -9,6 +9,13 @@ vim.g.maplocalleader = options.keys.leader
 require 'tj-kickstart'
 -- require('my-lazy').setup(require('my-plugins'))
 
+
+local lspcfg = require('lspconfig')
+lspcfg.sourcekit.setup {
+  cmd = {"sourcekit-lsp"},
+  filetypes = {"swift"},
+  root_dir = lspcfg.util.root_pattern(".git", "Package.swift"),
+}
 -- Window Options
 
 vim.wo.number = options.apperance.number
