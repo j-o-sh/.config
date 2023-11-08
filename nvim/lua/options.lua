@@ -14,6 +14,9 @@ return {
     expandtab = true,
     incsearch = true,
     scrolloff = 8,
+
+    foldlevel = 666,
+    foldmethod = 'indent'
   },
 
   keys = {
