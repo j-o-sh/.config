@@ -115,10 +115,6 @@ require('lazy').setup(merge({
       end,
     },
   },
-
-
-  { "ellisonleao/gruvbox.nvim", priority = 1000,  config = true, opts = ... },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -259,6 +255,7 @@ require('telescope').setup {
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
+pcall(require('telescope').load_extension, 'file_browser')
 
 
 -- [[ Configure Treesitter ]]

@@ -11,10 +11,12 @@ It starts with `init.lua`.
 
 After starting to play with LunarVim, there are a few things I would like to get in my actual nvim config:
 
-* [NvimTree](https://github.com/nvim-tree/nvim-tree.lua) - even if I don't like having a file explorer open all the time, the ability to open one on the side quickly for project management tasks is pretty good.
+* Either [Telescope File Browser](https://github.com/nvim-telescope/telescope-file-browser.nvim) or [NvimTree](https://github.com/nvim-tree/nvim-tree.lua) - even if I don't like having a file explorer open all the time, the ability to open one on the side quickly for project management tasks is pretty good.
 * [WhichKey](https://github.com/folke/which-key.nvim) - since it came with kickstart-nvim, I am pretty sure I already have this one, but it is worth setting up better for it to be more useful.
 * Some kind of start-screen that allows me to either reopen a project or `chdir`
-
+* Also I should simply leave {Awesome Neovim](https://github.com/rockerBOO/awesome-neovim) here... as a list to go through at some point.
+* Btw... have a look at [this](https://github.com/LunarVim/Launch.nvim/tree/master) for some inspiration on how to organize my own config.
+* something for doing Git things in nvim
 
 
 ### Dependencies
@@ -23,6 +25,9 @@ These are the gathered dependencies to be able to run everything in Neovim (LSPs
 
 * wget
 * cargo (rust)
+* rgrep
+* `npm neovim`
+* python3
 
 
 ### Directory Structure

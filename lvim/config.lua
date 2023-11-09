@@ -9,3 +9,6 @@ lvim.plugins = {
 
 lvim.colorscheme = "gruvbox"
 
+vim.opt.relativenumber = true -- relative line numbers
+vim.opt.wrap = true -- wrap lines
+
