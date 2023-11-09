@@ -7,6 +7,16 @@ Custom setup, loosely based on the [Kickstart NVIM](https://github.com/nvim-lua/
 It starts with `init.lua`.
 
 
+### Things I need
+
+After starting to play with LunarVim, there are a few things I would like to get in my actual nvim config:
+
+* [NvimTree](https://github.com/nvim-tree/nvim-tree.lua) - even if I don't like having a file explorer open all the time, the ability to open one on the side quickly for project management tasks is pretty good.
+* [WhichKey](https://github.com/folke/which-key.nvim) - since it came with kickstart-nvim, I am pretty sure I already have this one, but it is worth setting up better for it to be more useful.
+* Some kind of start-screen that allows me to either reopen a project or `chdir`
+
+
+
 ### Dependencies
 
 These are the gathered dependencies to be able to run everything in Neovim (LSPs and stuff).
