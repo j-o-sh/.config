@@ -38,6 +38,32 @@ We are using the [Lazy](https://github.com/folke/lazy.nvim) plugin manager.
 
 What follows is a list of all the plugins I use and a short description so that I remember what they are for.
 
+- Lazy
+- nvim-fugitive
+- nvim-rhubarb
+- vim-sleuth
+- nvim-lspconfig
+- mason
+- mason-lspconfig
+- fidget.nvim
+- neodev.nvim
+- nvim-cmp
+- cmp_luasnip
+- cmp-nvim-lsp
+- friendly-snippets
+- which-key.nvim
+- gitsigns.nvim
+- nvim-lualine/lualine.nvim
+- indent-blanklines.nvim
+- numToStr/Comment.nvim
+- telescope.nvim
+- plenary.nvim
+- telescope-fzf-native.nvim
+- nvim-treesitter
+- nvim-treesitter-textobjects
+- gruvbox.nvim
+- telescope-file-browser
+
 #### Vim-Sleuth
 
 [Vim-sleuth](https://github.com/tpope/vim-sleuth) enables vim to determine tabstops based on the current file.
