@@ -1,0 +1,9 @@
+alias ll='ls -lG'
+alias la='ls -laG'
+
+# Git related
+function gac () {
+  git add .
+  git commit -m "$@"
+}
+

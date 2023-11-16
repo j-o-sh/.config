@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export NODE_EXTRA_CA_CERTS=$HOME/.ssh/ca-bundle.crt
+
+export PATH="$HOME/.config/bin:$HOME/.local/bin:$PATH"
+
+source "$HOME/.config/zsh/alias"
+
