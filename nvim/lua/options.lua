@@ -30,6 +30,10 @@ return {
       findbuffers = '<leader>fb',
       findhelp = '<leader>fh'
     }
+
+    -- Explore files 
+    -- Find files
+    -- Grep in files
   }
 }
 
