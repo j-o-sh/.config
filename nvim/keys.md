@@ -2,6 +2,15 @@
 
 Figuring out a good key mapping scheme.
 
+## Basic Idea
+
+Have strong mnemonics to start the actions and rely on _whichkey_ to show the bindings.
+
+Starting bindings may be: 
+ - `<leader>G` - [G]oto ...
+ - `<leader>F` - [F]ind ...
+ - `<leader>C` - [C]ode ...
+
 ## Implementation
 
 * `<leader>`
