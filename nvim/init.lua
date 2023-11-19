@@ -29,5 +29,8 @@ end
 
 vim.cmd("colorscheme " .. options.apperance.colorscheme)
 
+-- Set the background to transparent
+vim.cmd('highlight Normal ctermbg=none guibg=none')
+
 require('remap')(options)
 

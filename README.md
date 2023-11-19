@@ -36,7 +36,8 @@ These are the gathered dependencies to be able to run everything in Neovim (LSPs
 
 We are using the [Lazy](https://github.com/folke/lazy.nvim) plugin manager.
 
-What follows is a list of all the plugins I use and a short description so that I remember what they are for.
+
+### Plugin Option Keybinds?
 
 - Lazy
 - nvim-fugitive
@@ -63,6 +64,9 @@ What follows is a list of all the plugins I use and a short description so that 
 - nvim-treesitter-textobjects
 - gruvbox.nvim
 - telescope-file-browser
+
+
+What follows is a list of all the plugins I use and a short description so that I remember what they are for.
 
 #### Vim-Sleuth
 
