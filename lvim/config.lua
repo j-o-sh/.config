@@ -8,6 +8,7 @@ lvim.plugins = {
 }
 
 lvim.colorscheme = "gruvbox"
+lvim.transparent_window = true
 
 vim.opt.relativenumber = true -- relative line numbers
 vim.opt.wrap = true -- wrap lines

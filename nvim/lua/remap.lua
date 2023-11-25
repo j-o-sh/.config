@@ -38,10 +38,17 @@ return function (options)
   remap('<leader>fd', tele.diagnostics, { desc = '[F]ind [D]iagnostics' })
   remap('<leader>fr', tele.resume, { desc = '[F]ind [R]esume' })
 
+-- vim.api.nvim_set_keymap('n', '<leader>e', ':lua require("nvim-tree").toggle()<CR>', {noremap = true, silent = true})
+  -- local tree = require("nvim-tree")
+  remap('<leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true, desc = "[E]xplore files"})
+
   -- Diagnostic keymaps
   remap('[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
   remap(']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-  remap('<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-  remap('<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+  remap('<leader>li', vim.diagnostic.open_float, { desc = '[L]sp floating diagnostic [i]nfo' })
+  remap('<leader>ll', vim.diagnostic.setloclist, { desc = '[L]sp diagnostics [l]ist' })
 end
+
+
+
 
