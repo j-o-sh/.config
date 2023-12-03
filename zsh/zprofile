@@ -2,7 +2,10 @@
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export NODE_EXTRA_CA_CERTS=$HOME/.ssh/ca-bundle.crt
+if [[ -e "$HOME/.ssh/ca-bundle.crt" ]]
+then
+  export NODE_EXTRA_CA_CERTS=$HOME/.ssh/ca-bundle.crt
+fi
 
 export PATH="$HOME/.config/bin:$HOME/.local/bin:$PATH"
 

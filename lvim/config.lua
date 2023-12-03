@@ -10,6 +10,10 @@ lvim.plugins = {
 lvim.colorscheme = "gruvbox"
 lvim.transparent_window = true
 
+lvim.builtin.telescope = {
+  file_ignore_patterns = { ".git", "node_modules" }
+}
+
 vim.opt.relativenumber = true -- relative line numbers
 vim.opt.wrap = true -- wrap lines
 
