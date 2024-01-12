@@ -13,3 +13,6 @@ lvim.transparent_window = true
 vim.opt.relativenumber = true -- relative line numbers
 vim.opt.wrap = true -- wrap lines
 
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 666
+
