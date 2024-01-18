@@ -1,6 +1,6 @@
 -- Plugins
 
-local plugins = require("plugins")
+local plugins = require("scratch.plugins")
 
 -- Package Manager (lazy)
 function pm(plugins, options)
@@ -27,7 +27,7 @@ require('lsp-setup')
 require('treesitter-setup')
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local remap = require('remap')
+local remap = require('scratch.remap')
 remap.global()
 remap.telescope()
 remap.snip()

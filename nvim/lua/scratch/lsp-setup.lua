@@ -4,7 +4,7 @@ lsp.extend_lspconfig()
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({ buffer = bufnr })
 
-  local remap = require('remap')
+  local remap = require('scratch.remap')
   remap.lsp(bufnr)
 end)
 

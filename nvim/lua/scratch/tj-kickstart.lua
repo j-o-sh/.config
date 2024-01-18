@@ -184,7 +184,7 @@ require('lazy').setup(merge({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
-}, require 'plugins'), {})
+}, require 'scratch.plugins'), {})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
