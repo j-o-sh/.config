@@ -6,6 +6,7 @@ require 'nvim-treesitter.configs'.setup {
     "toml", "yaml",
     "swift", "c", "rust", "go",
     "lua",
+    "glimmer",
     "gitignore",
     "vim", "vimdoc", "query"
   },
