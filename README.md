@@ -61,3 +61,8 @@ There are a few _categories_ that my make up the basic of my leader mappings:
 - [ ] Telescope
 - [ ] Treesitter
 - [ ] LSPConfig
+
+
+## Notes
+
+- I don't know if _oh-my-z_ is really providing enough benefit.
