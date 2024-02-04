@@ -1,3 +1,5 @@
+local keys = require('keys')
+
 return {
   -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
@@ -14,11 +16,8 @@ return {
       indent = { enable = true },
       incremental_selection = {
         enable = true,
-        keymaps = {
-          init_selection = 'gnn',
-          node_incremental = 'grn',
-          scope_incremental = 'grc',
-        },
+        -- keymaps = keys.incremental_selection,
+        keymaps = keys.cmdKeys('treesitter.incremental_selection')
       },
       textobjects = {
         select = {
