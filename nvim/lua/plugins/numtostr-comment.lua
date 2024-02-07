@@ -3,9 +3,7 @@
 -- TODO load keybindings from keymam in options
 return  { 
    "numToStr/Comment.nvim",
-   opts = {
-     toggler = { line = '<leader>gc', block = '<leader>gb' }
-   },
+   opts = {},
    lazy = false
 }
 

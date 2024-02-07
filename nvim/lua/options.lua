@@ -1,5 +1,7 @@
 return {
   colorscheme = 'catppuccin',
-  keys = require 'keys'
+  keys = {
+    leader = ' ',
+  }
 }
 

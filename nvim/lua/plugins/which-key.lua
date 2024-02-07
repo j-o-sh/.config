@@ -1,6 +1,3 @@
-local ut = require('utils').tables
-local keys = require('keys')
-
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
@@ -14,19 +11,7 @@ return {
     vim.o.timeout = true
     vim.o.timeoutlen = 300
 
-    local wk = require('which-key')
-
-    for _, group in pairs(keys.groups) do
-      local cleangroup = {}
-      for gk, gv in keys.kpairs(group) do
-        cleangroup[gk] = gv[1]
-      end
-      cleangroup.name = group.name
-
-      wk.register({
-        [group.key] = cleangroup,
-      }, { prefix = group.prefix })
-    end
+    -- local wk = require('which-key')
 
     -- wk.register({
     --   s = {
