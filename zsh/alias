@@ -1,9 +1,19 @@
 alias ll='ls -lG'
 alias la='ls -laG'
 
-# Git related
+# Git Add & Commit
 function gac () {
   git add .
   git commit -m "$@"
+}
+
+# Git Branch Prune
+function gbp () {
+  git fetch
+  git remote prune origin
+  stale=$(git branch -vv | grep ': gone]' | awk '{print $1}')
+  for branch in $( echo "$stale" ); do
+    git branch -D $branch
+  done
 }
 
