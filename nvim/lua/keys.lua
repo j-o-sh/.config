@@ -9,11 +9,6 @@ local treesitter = {
     ['ac'] = '@class.outer',
     ['ic'] = '@class.inner',
   },
-  incremental_selection = {
-    init_selection = '<leader>si',
-    node_incremental = '<leader>sn',
-    scope_incremental = '<leader>ss',
-  },
   move = {
     goto_next_start = {
       [']f'] = '@function.outer',
@@ -44,12 +39,6 @@ local treesitter = {
       ['<leader>A'] = '@parameter.inner',
     },
   },
-  lsp_interop = {
-    peek_definition_code = {
-      ["<leader>df"] = "@function.outer",
-      ["<leader>dF"] = "@class.outer",
-    },
-  }
 }
 
 local groups = {
@@ -62,6 +51,14 @@ local groups = {
     n = { 'Add [N]ode', 'node_incremental' },
     s = { 'Add [S]cope', 'scope_incremental' },
   },
+  [ 'treesitter.lsp_interop.peek_definition_code' ] = {
+    name = '[P]eek definition...',
+    prefix = '<leader>',
+    key = 'p',
+
+    f = {'[P]eek [F]unction', '@function.outer'},
+    c = {'[Peek] [C]lass', '@class.outer'},
+  }
 }
 
 local kpairs = function(group)
@@ -76,7 +73,10 @@ local kpairs = function(group)
   end
 end
 
-
+-- finds a group with the given id and returns its keys as
+-- { [ g[2] ] = prefix .. key .. keyvalue, ... }
+-- e.g. { 'foo' = { prefix = '<x>', key = 'k', v = [ 'Description', 'command' ] } }
+-- will be returned as { ['command'] = '<x>kv' }
 local commandKeys = function(id)
   local g = groups[id]
   local commands = {}
