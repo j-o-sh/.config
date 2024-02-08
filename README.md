@@ -1,150 +1,67 @@
 # Joshs .config
 
+> Restarting with simplicity
+
+This config includes configuration for [Neovim](https://neovim.io), tmux and z-shell. All of which should be switchable between different ui (color and font) themes. Supported themes will [Gruvbox Dark]() and [Catppuccin]() in all four variants.
+
+## Painpoints
+
+* Neovim keybindings
+* Tmux Knowledge
+* Working with paste buffers in Neovim (replace for instance)
+
+
+## General Key Maps
+
+I intend to have a key map that is logical throughout all application layers and thus would be best to be described here.
+It would also be cool to keep things close to established standards so that I can still move on foreign systems.
+
+- Neovim Stuff should start with [leader]
+- Tmux stuff should start with [CTRL+b] or [CTRL+z]
+
+
+## Stuff Outside
+
+- iTerm2
+    -> margins should be x18,y20
+- [ ] find a window manager that works well
+
+
+### Window Manager Needs
+
+Theese Setups are needed:
+
+- Comm Stuff: A Space where all my communication software (email, chat, etc.) lives
+- Browser: Full screen complete browsing
+- Web Dev: Two Panel Layout of The Terminal with tmux+neovim on the left and a _naked_ brower on the right
+- Mobile Dev: Same as WebDev but having the Mobile Emulator on the right
+- Zen Mode: Terminal in full screen, but with big margins left and right, as that the text passage stays narrow enough
+
+
+
 ## Neovim
 
-Custom setup, loosely based on the [Kickstart NVIM](https://github.com/nvim-lua/kickstart.nvim) configuration.
+Thoughts about my (ideal?) nvim
 
-It starts with `init.lua`.
+## Keys
 
+* **Only** use leader mappings that don't have a modification mapping without leader
+* Use simple mnemonics
 
-### Things I need
+There are a few _categories_ that my make up the basic of my leader mappings:
 
-After starting to play with LunarVim, there are a few things I would like to get in my actual nvim config:
+- finding the right file to open
+- jumping between symbols in a project
+- code/language related actions and diagnostics
+- navigating between symbols in the open buffer
+- explore the project
 
-* Either [Telescope File Browser](https://github.com/nvim-telescope/telescope-file-browser.nvim) or [NvimTree](https://github.com/nvim-tree/nvim-tree.lua) - even if I don't like having a file explorer open all the time, the ability to open one on the side quickly for project management tasks is pretty good.
-* [WhichKey](https://github.com/folke/which-key.nvim) - since it came with kickstart-nvim, I am pretty sure I already have this one, but it is worth setting up better for it to be more useful.
-* Some kind of start-screen that allows me to either reopen a project or `chdir`
-* Also I should simply leave {Awesome Neovim](https://github.com/rockerBOO/awesome-neovim) here... as a list to go through at some point.
-* Btw... have a look at [this](https://github.com/LunarVim/Launch.nvim/tree/master) for some inspiration on how to organize my own config.
-* something for doing Git things in nvim
-
-
-### Dependencies
-
-These are the gathered dependencies to be able to run everything in Neovim (LSPs and stuff).
-
-* wget
-* cargo (rust)
-* rgrep
-* `npm neovim`
-* python3
+- [ ] Whichkey
+- [ ] Telescope
+- [ ] Treesitter
+- [ ] LSPConfig
 
 
-### Directory Structure
+## Notes
 
-### Plugins
-
-We are using the [Lazy](https://github.com/folke/lazy.nvim) plugin manager.
-
-
-### Plugin Option Keybinds?
-
-- Lazy
-- nvim-fugitive
-- nvim-rhubarb
-- vim-sleuth
-- nvim-lspconfig
-- mason
-- mason-lspconfig
-- fidget.nvim
-- neodev.nvim
-- nvim-cmp
-- cmp_luasnip
-- cmp-nvim-lsp
-- friendly-snippets
-- which-key.nvim
-- gitsigns.nvim
-- nvim-lualine/lualine.nvim
-- indent-blanklines.nvim
-- numToStr/Comment.nvim
-- telescope.nvim
-- plenary.nvim
-- telescope-fzf-native.nvim
-- nvim-treesitter
-- nvim-treesitter-textobjects
-- gruvbox.nvim
-- telescope-file-browser
-
-
-What follows is a list of all the plugins I use and a short description so that I remember what they are for.
-
-#### Vim-Sleuth
-
-[Vim-sleuth](https://github.com/tpope/vim-sleuth) enables vim to determine tabstops based on the current file.
-
-
-#### Nvim Lspconfig
-
-[Lspconfig](https://github.com/neovim/nvim-lspconfig) is a Neovim plugin that simplifies the configuration of Language Server Protocol (LSP) clients in Neovim. It provides a straightforward way to set up and manage LSP clients for various programming languages.
-
-In a more concise overview, `nvim-lspconfig`:
-
-- Simplifies LSP configuration: It abstracts away the complexity of manually configuring LSP clients in Neovim.
-
-- Provides easy setup: It offers pre-defined configurations for popular programming languages, making it simple to get started with LSP.
-
-- Offers customization options: It allows users to customize the behavior of LSP clients according to their preferences and specific project requirements.
-
-- Supports various LSP servers: It supports a wide range of language servers, enabling Neovim to provide language-specific features like code completion, diagnostics, and documentation.
-
-By using `nvim-lspconfig`, Neovim users can quickly set up and benefit from the capabilities of LSP, enhancing their coding experience with advanced language-specific features.
-
-
-#### Nvim Fidget
-
-[Figet](https://github.com/j-hui/fidget.nvim) is a simple UI for presenting LSP progress.
-
-
-#### Neodev
-
-[Neodev.nvim](https://github.com/folke/neodev.nvim) is a Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
-
-#### Mason and Mason/Lspconfig
-
-[Mason](https://github.com/williamboman/mason.nvim) is basically an LSP package manager and allows (together with [Mason-LspConfig](https://github.com/williamboman/mason-lspconfig.nvim) for an automagic setup of LSPs for new languages.
-
-
-#### Lualine
-
-[Nvim-Lualine](https://github.com/nvim-lualine/lualine.nvim) is a blazing fast and easy to configure Neovim statusline written in Lua. (or so they say in their docs at least...)
-
-
-#### Comment.nvim
-
-The [Comment](https://github.com/numToStr/Comment.nvim) plugin is a simple code commenting tool.
-
-* `gcc` to comment or uncomment a line
-
-
-#### Telescope
-
-The [Telescope](https://github.com/nvim-telescope/telescope.nvim) Fuzzy Finder.
-
-Notes:
-
- - `leader ff` - find files
- - `leader fg` - grep in working directory
-
-> Uses [ripgrep](https://github.com/BurntSushi/ripgrep#installation) for the Grep part (`<leader> fg`)
-
-#### Treesitter
-
-[Nvim Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) provides Treesitter for Nvim.
-
-Treesitter is a code structure module. Basically somewhat LSP-like
-
-
-### Unused but interesting Plugins
-
-I am trying to get a sense of the ecosystem. So I will not actively use a plugin unless I understand it's usecase. However I want a place to remind myself of interesting ones.
-
-This is that space.
-
-* [Fugitive](https://github.com/tpope/vim-fugitive) - a GIT plugin
-* [Rhubarb](https://github.com/tpope/vim-rhubarb) - a GITHub plugin
-
-
-### Keymaps
-
-
-
+- I don't know if _oh-my-z_ is really providing enough benefit.
