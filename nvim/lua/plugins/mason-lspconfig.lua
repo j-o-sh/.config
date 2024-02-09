@@ -6,7 +6,9 @@ return {
     'hrsh7th/cmp-nvim-lsp',
   },
   opts = {
-    ensure_installed = {},
+    ensure_installed = {
+      'lua_ls', 'tsserver', 'volar'
+    },
     automatic_installation = true,
   },
   init = function ()
