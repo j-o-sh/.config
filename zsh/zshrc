@@ -1,3 +1,9 @@
-# source $HOME/.config/zsh/ohmyz
-# echo 'Oh-My-Z loaded'
+# Load FSH & Catppuccin for FSH
+source ~/.config/zsh/plugins/fsh/fast-syntax-highlighting.plugin.zsh
+fast-theme catppuccin-mocha
+
+# Load Pure (theme)
+fpath+=($HOME/.config/zsh/plugins/pure)
+autoload -U promptinit; promptinit
+prompt pure
 
