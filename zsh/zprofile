@@ -6,6 +6,7 @@ if [[ -f "$HOME/.ssh/ca-bundle.crt" ]]; then
   export NODE_EXTRA_CA_CERTS=$HOME/.ssh/ca-bundle.crt
 fi
 
+export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.config/bin:$HOME/.local/bin:$HOME/.mint/bin:$PATH"
 
 source "$HOME/.config/zsh/alias"
