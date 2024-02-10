@@ -7,6 +7,7 @@ This config includes configuration for [Neovim](https://neovim.io), tmux and z-s
 ## Links n Stuff
 
 - [ZSH documentation](https://zsh.sourceforge.io/Doc/Release/zsh_toc.html)
+- [Nerdfont Cheatsheet](https://www.nerdfonts.com/cheat-sheet)
 
 ## Painpoints
 
