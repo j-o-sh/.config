@@ -1,0 +1,6 @@
+['[C]ode ...']
+prefix = '<leader>'
+key = 'c'
+
+d = [ 'vim.diagnostic.open_float', 'Open [c]ode [d]iagnostics' ]
+
