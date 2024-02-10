@@ -5,6 +5,10 @@ fast-theme catppuccin-mocha 1>/dev/null
 # Load Pure (theme)
 fpath+=($HOME/.config/zsh/plugins/pure)
 autoload -U promptinit; promptinit
-prompt pure
-zstyle :prompt:pure:prompt:success color green
+# prompt pure
+# zstyle :prompt:pure:prompt:success color green
+
+# Custom prompt
+prompt walters
+PS1=$'%F{cyan}\uf179%f '
 
