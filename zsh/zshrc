@@ -1,6 +1,6 @@
 # Load FSH & Catppuccin for FSH
 source ~/.config/zsh/plugins/fsh/fast-syntax-highlighting.plugin.zsh
-fast-theme catppuccin-mocha
+fast-theme catppuccin-mocha 1>/dev/null
 
 # Load Pure (theme)
 fpath+=($HOME/.config/zsh/plugins/pure)
