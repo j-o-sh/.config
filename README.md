@@ -4,6 +4,10 @@
 
 This config includes configuration for [Neovim](https://neovim.io), tmux and z-shell. All of which should be switchable between different ui (color and font) themes. Supported themes will [Gruvbox Dark]() and [Catppuccin]() in all four variants.
 
+## Links n Stuff
+
+- [ZSH documentation](https://zsh.sourceforge.io/Doc/Release/zsh_toc.html)
+
 ## Painpoints
 
 * Neovim keybindings
