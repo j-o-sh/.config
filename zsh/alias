@@ -23,3 +23,9 @@ function gbp () {
   done
 }
 
+# Setting the cursor back to a line after exiting neovim
+function nvim () {
+  command nvim $@
+  echo '\e[5 q'
+}
+
