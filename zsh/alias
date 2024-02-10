@@ -7,6 +7,12 @@ function gac () {
   git commit -m "$@"
 }
 
+function gacp () {
+  git pull
+  gac "$@"
+  git push
+}
+
 # Git Branch Prune
 function gbp () {
   git fetch
