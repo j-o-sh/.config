@@ -2,13 +2,15 @@
 source ~/.config/zsh/plugins/fsh/fast-syntax-highlighting.plugin.zsh
 fast-theme catppuccin-mocha 1>/dev/null
 
-# Load Pure (theme)
-fpath+=($HOME/.config/zsh/plugins/pure)
 autoload -U promptinit; promptinit
+# Load Pure (theme)
+# fpath+=($HOME/.config/zsh/plugins/pure)
 # prompt pure
 # zstyle :prompt:pure:prompt:success color green
 
 # Custom prompt
-prompt walters
+# prompt walters
 PS1=$'%F{cyan}\uf179%f '
+RPROMPT=$'%F{cyan}\uf07b %1~%f'
+echo '\e[5 q'
 
