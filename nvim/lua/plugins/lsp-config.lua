@@ -7,15 +7,30 @@ end
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    -- Automatically install LSPs to stdpath for neovim
-    { 'williamboman/mason.nvim', config = true },
     'williamboman/mason-lspconfig.nvim',
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-nvim-lsp',
     'folke/which-key.nvim',
   },
+  lazy = false,
   init = function()
-    require('mason').setup()
-    require('mason-lspconfig').setup()
+    local lspcfg = require('lspconfig')
+    local cmp = require('cmp_nvim_lsp')
     local wk = require('which-key')
+    local servers = {
+      lua_ls = {}, tsserver = {}, volar = {}, gopls = {},
+      sourcekit = {
+        root_dir = lspcfg.util.root_pattern(
+          '.git',
+          'Package.swift',
+          'compile_commands.json'
+        ),
+      }
+    }
+    for server, setup in pairs(servers) do
+      setup.capabilities = cmp.default_capabilities()
+      lspcfg[server].setup(setup)
+     end
 
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -29,13 +44,7 @@ return {
         'open [i]nfo [d]iagnostics'
       }
     })
-    -- vim.keymap.set('n', '<leader>id', vim.diagnostic.open_float)
-    -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-    -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-    -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
-    -- Use LspAttach autocommand to only map the following keys
-    -- after the language server attaches to the current buffer
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
       callback = function(ev)
