@@ -19,6 +19,7 @@ return {
     local wk = require('which-key')
     local servers = {
       lua_ls = {}, tsserver = {}, volar = {}, gopls = {},
+      html = {},
       sourcekit = {
         root_dir = lspcfg.util.root_pattern(
           '.git',
