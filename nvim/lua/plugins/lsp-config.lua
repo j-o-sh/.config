@@ -18,6 +18,7 @@ return {
     local cmp = require('cmp_nvim_lsp')
     local wk = require('which-key')
     local servers = {
+      cssls = {},
       lua_ls = {}, tsserver = {}, volar = {}, gopls = {},
       html = {},
       sourcekit = {
