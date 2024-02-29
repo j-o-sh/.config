@@ -9,8 +9,10 @@ autoload -U promptinit; promptinit
 # zstyle :prompt:pure:prompt:success color green
 
 # Custom prompt
-# prompt walters
-PS1=$'%F{cyan}\uf179%f '
-RPROMPT=$'%F{cyan}\uf07b %1~%f'
+_COL=${OSCOLOR:-cyan}
+_ICON=${OSICON:-$'\uf179'}
+_FOLDER=$'\uf07b'
+PS1="%F{$_COL}$_ICON%f "
+RPROMPT="%F{$_COL}$_FOLDER %1~%f"
 echo '\e[5 q'
 
