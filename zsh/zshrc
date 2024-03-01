@@ -2,17 +2,25 @@
 source ~/.config/zsh/plugins/fsh/fast-syntax-highlighting.plugin.zsh
 fast-theme catppuccin-mocha 1>/dev/null
 
-autoload -U promptinit; promptinit
-# Load Pure (theme)
-# fpath+=($HOME/.config/zsh/plugins/pure)
-# prompt pure
-# zstyle :prompt:pure:prompt:success color green
-
 # Custom prompt
 _COL=${OSCOLOR:-cyan}
 _ICON=${OSICON:-$'\uf179'}
 _FOLDER=$'\uf07b'
-PS1="%F{$_COL}$_ICON%f "
-RPROMPT="%F{$_COL}$_FOLDER %1~%f"
+_BRANCH=$'\ue725'
+
+autoload -Uz promptinit 
+autoload -Uz vcs_info
+promptinit
+
+precmd() {
+    vcs_info
+}
+zstyle ':vcs_info:git:*' formats "$_BRANCH %b"
+zstyle ':vcs_info:*' enable git
+setopt prompt_subst
+
+
+PS1="%F{$_COL}%1~ $_ICON%f "
+RPROMPT="%F{$_COL}\$vcs_info_msg_0_%f"
 echo '\e[5 q'
 
