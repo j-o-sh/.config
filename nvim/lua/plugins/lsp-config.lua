@@ -4,6 +4,13 @@ local Keys = function(wk, buffer)
   end
 end
 
+local function vueTsPluginLocation()
+  local mason_registry = require('mason-registry')
+  local ts_plugin_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin'
+
+  return ts_plugin_path
+end
+
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
@@ -19,7 +26,21 @@ return {
     local wk = require('which-key')
     local servers = {
       cssls = {},
-      lua_ls = {}, tsserver = {}, volar = {}, gopls = {},
+      lua_ls = {},
+      tsserver = {
+        init_options = {
+          plugins = {
+            {
+              name = '@vue/typescript-plugin',
+              location = vueTsPluginLocation(),
+              languages = { 'vue', 'typescript', 'javascript' },
+            },
+          },
+        },
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+      },
+      volar = {},
+      gopls = {},
       html = {},
       sourcekit = {
         root_dir = lspcfg.util.root_pattern(
