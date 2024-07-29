@@ -30,14 +30,16 @@ return {
     require("telescope").load_extension "file_browser"
 
     local wk = require 'which-key'
-    wk.register({
-      ['<leader>fe'] = {
+    wk.add({
+      {
+        '<leader>fe',
         '<cmd>:Telescope file_browser<cr>',
-        '[f]ind by [e]xploring pwd'
+        desc = '[f]ind by [e]xploring pwd'
       },
-      ['<leader>fE'] = {
+      {
+        '<leader>fE',
         '<cmd>:Telescope file_browser path=%:p:h select_buffer=true<cr>',
-        '[f]ind by [E]xploring the current dir'
+        desc = '[f]ind by [E]xploring the current dir'
       },
     })
   end

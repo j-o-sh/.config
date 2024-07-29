@@ -1,6 +1,6 @@
 local Keys = function(wk, buffer)
   return function(keys, command, desc)
-    wk.register({ ['<leader>' .. keys] = { command, desc, buffer = buffer } })
+    wk.add({ { '<leader>' .. keys,  command, desc = desc, buffer = buffer } })
   end
 end
 
@@ -57,15 +57,12 @@ return {
 
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    wk.register({ ['<leader>i'] = { '+[i]nfo' } })
-    wk.register({ ['<leader>g'] = { '+[g]o to' } })
-    wk.register({ ['<leader>c'] = { '+[c]ode' } })
+    wk.add({
+      {'<leader>i', group = '+[i]nfo' },
+      {'<leader>id', vim.diagnostic.open_float, desc = 'open [i]nfo [d]iagnostics' },
 
-    wk.register({
-      ['<leader>id'] = {
-        vim.diagnostic.open_float,
-        'open [i]nfo [d]iagnostics'
-      }
+      { '<leader>g', group = '+[g]o to' },
+      { '<leader>c', group = '+[c]ode' },
     })
 
     vim.api.nvim_create_autocmd('LspAttach', {

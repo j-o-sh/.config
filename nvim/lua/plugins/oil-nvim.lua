@@ -8,7 +8,9 @@ return {
   init = function ()
     local wk = require('which-key')
 
-    wk.register({ ['<leader>o'] = { '+[o]open' } })
-    wk.register({ ['<leader>oc'] = { '<CMD>Oil<CR>', '[o]pen [c]urrent directory' } })
+    wk.add({
+      { '<leader>o', group = '+[o]open' },
+      { '<leader>oc', '<CMD>Oil<CR>', desc = '[o]pen [c]urrent directory' },
+    })
   end
 }

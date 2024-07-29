@@ -35,12 +35,14 @@ return {
     local builtin = require('telescope.builtin')
     local wk = require('which-key')
 
-    wk.register({ ['<leader>f'] = { '+[f]ind' } })
-    wk.register({ ['<leader>ff'] = { builtin.find_files, '[f]ind [f]iles' } })
-    wk.register({ ['<leader>fg'] = { builtin.live_grep, '[f]ind by [g]rep' } })
-    wk.register({ ['<leader>fb'] = { builtin.buffers, '[f]ind in [b]uffers' } })
-    wk.register({ ['<leader>fh'] = { builtin.help_tags, '[f]ind in [h]elp tags' } })
+    wk.add({
+      { '<leader>f', group = '+[f]ind' },
+      { '<leader>ff', builtin.find_files, desc = '[f]ind [f]iles' },
+      { '<leader>fg', builtin.live_grep, desc = '[f]ind by [g]rep' },
+      { '<leader>fb', builtin.buffers, desc = '[f]ind in [b]uffers' },
+      { '<leader>fh', builtin.help_tags, desc = '[f]ind in [h]elp tags' },
 
-    wk.register({ ['<leader>fc'] = { browse_git_changes, '[f]ind git [c]hanged files' } })
+      { '<leader>fc', browse_git_changes, desc = '[f]ind git [c]hanged files' },
+    })
   end
 }

@@ -1,11 +1,17 @@
 return {
   "folke/which-key.nvim",
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    { 'echasnovski/mini.icons', version = false }
+  },
   event = "VeryLazy",
   opts = {
-    window = {
+    win = {
       border = 'single',
     },
-    ignore_missing = true,
+    filter = function(mapping)
+      return mapping.desc and mapping.desc ~= ""
+    end,
   },
   init = function()
     vim.o.timeout = true
