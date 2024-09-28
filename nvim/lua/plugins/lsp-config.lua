@@ -27,7 +27,7 @@ return {
     local servers = {
       cssls = {},
       lua_ls = {},
-      tsserver = {
+      ts_ls = {
         init_options = {
           plugins = {
             {
