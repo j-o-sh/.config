@@ -5,7 +5,7 @@ return {
   },
   opts = {
     ensure_installed = {
-      'lua_ls', 'tsserver', 'volar', 'gopls'
+      'lua_ls', 'ts_ls', 'volar', 'gopls'
     },
     automatic_installation = true,
   },
