@@ -10,6 +10,18 @@ config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
 config.tab_bar_at_bottom = true
+config.colors = { tab_bar =  {
+  background = "rgb(0, 0, 0, 0)",
+  active_tab = {
+    bg_color = 'rgb(0, 0, 0, 0)',
+    fg_color = '#94e2d5',
+    intensity = 'Bold',
+  },
+  inactive_tab = {
+    bg_color = 'rgb(0, 0, 0, 0)',
+    fg_color = '#a6adc8'
+  }
+} }
 
 -- Cursor
 config.default_cursor_style = 'SteadyBar'
