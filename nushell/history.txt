@@ -1,0 +1,10 @@
+ll
+ls
+ls -a
+all
+ls -a | first
+ls -a | first | flatten
+ls -a | first | flatten | flatten
+ls -a | first | flatten
+ls -a | first | flatten | first
+cd ~/.config/
