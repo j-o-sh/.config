@@ -1,22 +1,19 @@
 return {
   "folke/which-key.nvim",
+  event = "VeryLazy",
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     { 'echasnovski/mini.icons', version = false }
   },
-  event = "VeryLazy",
   opts = {
-    win = {
-      border = 'single',
-    },
+    preset = 'modern',
+    delay = 300,
     filter = function(mapping)
       return mapping.desc and mapping.desc ~= ""
     end,
+    spec = {
+      { '<leader>?', '<cmd>WhichKey<CR>', desc =  'WhichKey Index'},
+    }
   },
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-
-  end
 }
 
