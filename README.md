@@ -9,6 +9,7 @@ This config includes configuration for [Neovim](https://neovim.io), tmux and z-s
 * don't overwrite the yank buffer with delete actions
 * better quickfix list ergonomics (& ui)
 * better git integration (find god keybinds for fugitive)
+* Macros are horrendous... I need multicursors
 
 ## Links n Stuff
 
