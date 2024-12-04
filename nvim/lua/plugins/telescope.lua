@@ -19,6 +19,20 @@ return {
     'folke/which-key.nvim',
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
+  -- TODO: Why is this a function? can I not get this into the Lazy manager style?
+  config = function ()
+    require('telescope').setup {
+      extensions = {
+        ['ui-select'] = {
+          require('telescope.themes').get_dropdown(),
+        },
+      },
+    }
+
+    -- Enable Telescope extensions if they are installed
+    pcall(require('telescope').load_extension, 'fzf')
+    pcall(require('telescope').load_extension, 'ui-select')
+  end,
   init = function ()
     local wk = require('which-key')
     local builtin = require('telescope.builtin')

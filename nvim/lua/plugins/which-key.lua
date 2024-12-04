@@ -13,6 +13,7 @@ return {
     end,
     spec = {
       { '<leader>?', '<cmd>WhichKey<CR>', desc =  'WhichKey Index'},
+      { '<leader>g', group = '+[g]it' },
     }
   },
 }
