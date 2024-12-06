@@ -1,12 +1,12 @@
 local function supertab (cmp, luasnip) 
   return cmp.mapping.preset.insert {
-    ['<ESC>'] = cmp.mapping(function(fallback) 
-      if cmp.visible() then
-        cmp.close()
-      else
-        fallback()
-      end
-    end),
+    -- ['<ESC>'] = cmp.mapping(function(fallback) 
+    --   if cmp.visible() then
+    --     cmp.close()
+    --   else
+    --     fallback()
+    --   end
+    -- end),
 
     ['<C-c>'] = cmp.mapping(function(fallback) 
       if not cmp.visible() then
