@@ -1,3 +1,8 @@
 return {
-  'tpope/vim-sleuth',
+  "tpope/vim-sleuth",
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+  },
 }
