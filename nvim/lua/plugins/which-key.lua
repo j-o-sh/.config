@@ -17,6 +17,7 @@ return {
       { "<leader>r", group = "[r]epository" },
       { "<leader>o", group = "[o]pen" },
       { "<leader>c", group = "[c]ode" },
+      { "<leader>n", group = "[n]otify" },
     },
   },
 }

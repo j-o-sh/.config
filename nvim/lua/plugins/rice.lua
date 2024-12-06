@@ -17,30 +17,6 @@ return {
     },
   },
   {
-    "goolord/alpha-nvim",
-    dependencies = { "echasnovski/mini.icons" },
-    opts = function()
-      local a = require("alpha.themes.dashboard")
-      local artfilename = vim.fn.stdpath("config") .. "/art.txt"
-      local artfile = io.open(artfilename, "r")
-      if artfile then
-        local lines = {}
-        for line in artfile:lines() do
-          table.insert(lines, line)
-        end
-        artfile:close()
-        a.section.header.val = lines
-      end
-
-      a.section.buttons.val = {
-        a.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-        a.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
-      }
-
-      return a.config
-    end,
-  },
-  {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
