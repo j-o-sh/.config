@@ -40,8 +40,8 @@ return {
     wk.add({
       { '<leader>f', group = '+[f]ind' },
       { '<leader>ff', '<CMD>Telescope find_files<CR>', desc = '[f]ind [f]iles' },
-      { '<leader>fw', builtin.grep_string, desc = '[f]ind the current [w]ord' },
-      { '<leader>fW', builtin.live_grep, desc = '[f]ind some [W]ords' },
+      { '<leader>fW', builtin.grep_string, desc = '[f]ind the current [W]ord' },
+      { '<leader>fw', builtin.live_grep, desc = '[f]ind some [w]ords' },
       { '<leader>fb', '<CMD>Telescope buffers<CR>', desc = '[f]ind in [b]uffers' },
       { '<leader>fB', builtin.current_buffer_fuzzy_find, desc = '[f]ind in current [B]uffer' },
       { '<leader>fg', builtin.git_files, desc = '[f]ind in [g]it files' },

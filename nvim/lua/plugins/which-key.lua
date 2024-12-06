@@ -13,7 +13,9 @@ return {
     end,
     spec = {
       { '<leader>?', '<cmd>WhichKey<CR>', desc =  'WhichKey Index'},
-      { '<leader>g', group = '+[g]it' },
+
+      { '<leader>r', group = '[r]epository'},
+      { '<leader>o', group = '[o]pen' },
     }
   },
 }

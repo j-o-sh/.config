@@ -9,7 +9,6 @@ return {
       local wk = require('which-key')
 
       wk.add({
-        { '<leader>o', group = '+[o]open' },
         { '<leader>oc', '<CMD>Oil --float<CR>', desc = '[o]pen [c]urrent directory' },
       })
     end
