@@ -1,6 +1,30 @@
 return {
-  -- TODO: add lua-line
-  -- TODO: Better Command line
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      theme = "catppuccin",
+    },
+    init = function()
+      local wk = require("which-key")
+      local bbq = require("barbecue.ui")
+
+      wk.add({
+        {
+          "<leader>gu",
+          function()
+            bbq.navigate(-1)
+          end,
+          desc = "[g]o [u]p a context",
+        },
+      })
+    end,
+  },
   {
     "folke/twilight.nvim",
     opts = {
@@ -23,12 +47,18 @@ return {
       options = {
         theme = "catppuccin",
         component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
         globalstatus = true,
       },
       sections = {
         lualine_a = {
-          { "filetype", icon_only = true, colored = false, padding = { left = 1 } },
+          {
+            "filetype",
+            icon_only = true,
+            colored = false,
+            padding = { left = 1 },
+            separator = { left = ""  },
+          },
           {
             "filename",
             symbols = {
@@ -39,11 +69,11 @@ return {
             },
           },
         },
-        lualine_b = { "location", "diagnostics" },
-        lualine_c = {},
+        lualine_b = { "location"},
+        lualine_c = {"diagnostics" },
         lualine_x = { "searchcount", "selectioncount" },
         lualine_z = {},
-        lualine_y = { "branch", "diff" },
+        lualine_y = { { "branch" }, {"diff", separator = { right = '' } }},
       },
     },
   },
