@@ -1,6 +1,6 @@
 -- Set leader keys first
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
 -- Set up lazy
@@ -17,12 +17,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 -- All the plugins
 require("lazy").setup("plugins")
 
 -- All the colors
-vim.cmd.colorscheme('catppuccin')
+vim.cmd.colorscheme("catppuccin")
 
 -- Vim Options
 vim.opt.number = true
@@ -35,7 +34,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.incsearch = true
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
@@ -46,20 +45,15 @@ vim.opt.smartcase = true
 
 -- Folding
 vim.opt.foldlevel = 666
-vim.opt.foldmethod = 'indent'
-
+vim.opt.foldmethod = "indent"
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup(
-    'kickstart-highlight-yank',
-    { clear = true }
-  ),
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
 })
-
