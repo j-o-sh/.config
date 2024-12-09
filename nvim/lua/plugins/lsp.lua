@@ -61,9 +61,10 @@ return {
           map("<leader>cr", vim.lsp.buf.rename, "[c]ode [r]ename")
           map("<leader>ca", vim.lsp.buf.code_action, "[c]ode [a]ction", { "n", "x" })
 
-          map("<leader>id", vim.diagnostic.open_float, "open [i]nfo [d]iagnostics")
-          map("<leader>ih", vim.lsp.buf.hover, "open [i]nfo on [h]over")
-          map("<leader>is", vim.lsp.buf.hover, "open [i]nfo on [s]ignature help")
+          map("<leader>id", vim.diagnostic.open_float, "[i]nfo [d]iagnostics")
+          map("<leader>iD", vim.diagnostic.setqflist, "[i]nfo [D]iagnostics in a quickfix list")
+          map("<leader>ih", vim.lsp.buf.hover, "[i]nfo on [h]over")
+          map("<leader>is", vim.lsp.buf.hover, "[i]nfo on [s]ignature help")
         end,
       })
 
