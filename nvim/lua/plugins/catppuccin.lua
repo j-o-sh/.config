@@ -25,6 +25,7 @@ return {
       gitsigns = true,
       treesitter = true,
       notify = true,
+      flash = true,
       markdown = true,
       mason = true,
       mini = {
