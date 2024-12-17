@@ -113,9 +113,9 @@ return {
             },
           },
         },
-        sourcekit = {
-          root_dir = lspcfg.util.root_pattern(".git", "Package.swift", "compile_commands.json"),
-        },
+        -- sourcekit = {
+        --   root_dir = lspcfg.util.root_pattern(".git", "Package.swift", "compile_commands.json"),
+        -- },
         ts_ls = {
           init_options = {
             plugins = {
@@ -130,6 +130,9 @@ return {
         },
         volar = {},
       }
+
+      -- manuelly setup servers (that don't have a mason entry)
+      lspcfg.sourcekit.setup {}
 
       require("mason").setup()
       require("mason-lspconfig").setup({
