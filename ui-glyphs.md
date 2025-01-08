@@ -89,11 +89,12 @@ Some other useful glyphs for various UI elements:
 ### 8. Nerd Font Logos
 Nerd Fonts also include various logos from programming languages and tools:
 
-| Glyph  | Code  | Name                          |
-|--------|-------|-------------------------------|
-|       | U+F179 | Apple Logo                   |
-|       | U+E716 | Git Logo                     |
-|       | U+E7E8 | Rust Logo                    |
-|       | U+E795 | Shell                        |
+| Glyph  | Code    | Name                         |
+|--------|---------|------------------------------|
+|       | U+F179  | Apple Logo                   |
+| 󰕈      | U+F0548 | Ubuntu Logo                  |
+|       | U+E716  | Git Logo                     |
+|       | U+E7E8  | Rust Logo                    |
+|       | U+E795  | Shell                        |
 
 
