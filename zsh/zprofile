@@ -1,6 +1,8 @@
 #!/bin/zsh
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 if [[ -f "$HOME/.ssh/ca-bundle.crt" ]]; then
   export NODE_EXTRA_CA_CERTS=$HOME/.ssh/ca-bundle.crt
