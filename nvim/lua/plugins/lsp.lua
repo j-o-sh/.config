@@ -132,7 +132,15 @@ return {
       }
 
       -- manuelly setup servers (that don't have a mason entry)
-      lspcfg.sourcekit.setup {}
+      lspcfg.clangd.setup {
+        cmd = { "clangd" },
+        filetypes = { "c", "cpp", "objc", "objcpp" }, -- Only attach to C/C++
+        root_dir = lspcfg.util.root_pattern("CMakeLists.txt", ".git"),
+      }
+      lspcfg.sourcekit.setup {
+        filetypes = { "swift", "objective-c", "objective-cpp" },
+        root_dir = lspcfg.util.root_pattern("Package.swift", ".git"),
+      }
 
       require("mason").setup()
       require("mason-lspconfig").setup({
