@@ -20,6 +20,9 @@ vim.opt.rtp:prepend(lazypath)
 -- All the plugins
 require("lazy").setup("plugins")
 
+-- Personal Extensions
+require("addons/close-other-buffers")()
+
 -- All the colors
 vim.cmd.colorscheme("catppuccin")
 
