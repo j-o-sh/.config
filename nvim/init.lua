@@ -41,6 +41,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
+vim.opt.colorcolumn = "80"
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
