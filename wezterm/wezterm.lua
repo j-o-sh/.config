@@ -31,13 +31,14 @@ config.window_decorations = 'RESIZE'
 config.window_padding = {
   left = '1cell',
   right = '2cell',
-  top = '1.5cell',
-  bottom = '0cell',
+  top = '0.5cell',
+  bottom = '0.5cell',
 }
 
 -- Background
 config.window_background_opacity = .8
--- stange redraw bug where i see a ghost of the past tab, when switching to a new one?
+-- stange redraw bug where i see a ghost of the past tab, when switching to a 
+-- new one?
 -- config.window_background_gradient = {
 --   colors = {'#1e1e2e88', '#11111bee' },
 --   -- Specifies a Linear gradient starting in the top left corner.
