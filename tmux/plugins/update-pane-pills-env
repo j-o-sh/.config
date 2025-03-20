@@ -1,0 +1,28 @@
+#!/bin/bash
+
+panes="$(tmux list-panes -F '#{pane_active} #{pane_index}')"
+count=$(echo "$panes" | wc -l | tr -d ' ')
+
+if [ "$count" -lt 2 ]; then
+  status=""
+else
+  status=" #[fg=#{@thm_crust},bg=default]"
+
+  while read -r active index; do
+    if [ "$active" -eq 1 ]; then
+      status+="#[fg=#{@thm_sky},bg=#{@thm_crust}]●"
+    else
+      status+="#[fg=#{@thm_surface_0},bg=#{@thm_crust}]●"
+    fi
+
+    if [ $index -ne $((count - 1)) ]; then
+      status+=" "
+    fi
+  done <<< "$panes"
+
+  status+="#[fg=#{@thm_crust},bg=default]"
+fi
+
+#TODO this will break as soon as there is more than 1 module in the status-right!
+tmux set -g status-right "$status"
+
