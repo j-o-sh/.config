@@ -6,13 +6,13 @@ count=$(echo "$panes" | wc -l | tr -d ' ')
 if [ "$count" -lt 2 ]; then
   status=""
 else
-  status=" #[fg=#{@thm_crust},bg=default]"
+  # status=" #[fg=#{@thm_crust},bg=default]"
 
   while read -r active index; do
     if [ "$active" -eq 1 ]; then
-      status+="#[fg=#{@thm_sky},bg=#{@thm_crust}]●"
+      status+="#[fg=#{@thm_sky}]●"
     else
-      status+="#[fg=#{@thm_surface_0},bg=#{@thm_crust}]●"
+      status+="#[fg=#{@thm_sky}]○"
     fi
 
     if [ $index -ne $((count - 1)) ]; then
@@ -20,7 +20,7 @@ else
     fi
   done <<< "$panes"
 
-  status+="#[fg=#{@thm_crust},bg=default]"
+  # status+="#[fg=#{@thm_crust},bg=default]"
 fi
 
 #TODO this will break as soon as there is more than 1 module in the status-right!
