@@ -22,6 +22,7 @@ require("lazy").setup("plugins")
 
 -- Personal Extensions
 require("addons/close-other-buffers")()
+require("addons/git-support")()
 
 -- All the colors
 vim.cmd.colorscheme("catppuccin")
