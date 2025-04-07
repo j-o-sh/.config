@@ -23,6 +23,7 @@ require("lazy").setup("plugins")
 -- Personal Extensions
 require("addons/close-other-buffers")()
 require("addons/git-support")()
+require("addons/vue-auto-marks")()
 
 -- All the colors
 vim.cmd.colorscheme("catppuccin")
