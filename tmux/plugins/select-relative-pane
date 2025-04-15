@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+direction="$1"  # "next" or "prev"
+
+# Get list of pane indexes
+panes=($(tmux list-panes -F "#{pane_index}"))
+num_panes=${#panes[@]}
+
+# Find the active pane's index
+active_index=$(tmux list-panes -F "#{pane_index} #{?pane_active,1,0}" | awk '$2 == 1 { print $1 }')
+
+# Calculate the target index
+if [[ "$direction" == "next" ]]; then
+  tmux select-pane -Z -t "$(( (active_index + 1) % num_panes ))"
+else
+  tmux select-pane -Z -t "$(( (active_index - 1) % num_panes ))"
+fi
+
