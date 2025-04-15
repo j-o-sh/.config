@@ -24,6 +24,7 @@ require("lazy").setup("plugins")
 require("addons/close-other-buffers")()
 require("addons/git-support")()
 require("addons/vue-auto-marks")()
+require("addons/virtual-line-margin")()
 
 -- All the colors
 vim.cmd.colorscheme("catppuccin")
@@ -43,7 +44,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
