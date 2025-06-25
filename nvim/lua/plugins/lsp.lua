@@ -12,7 +12,6 @@ return {
       },
     },
   },
-  -- { 'Bilal2453/luvit-meta', lazy = true },
   {
     -- Main LSP Configuration
     "neovim/nvim-lspconfig",
@@ -85,13 +84,11 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-      local function vueTsPluginLocation()
-        local mason_registry = require("mason-registry")
-        local ts_plugin_path = mason_registry.get_package("vue-language-server"):get_install_path()
-          .. "/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin"
-
-        return ts_plugin_path
-      end
+      -- local function vueTsPluginLocation()
+      --   local mason_registry = require("mason-registry")
+      --
+      --   return ts_plugin_path
+      -- end
 
       -- Enable the following language servers
       -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
@@ -116,19 +113,19 @@ return {
         -- sourcekit = {
         --   root_dir = lspcfg.util.root_pattern(".git", "Package.swift", "compile_commands.json"),
         -- },
-        ts_ls = {
-          init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = vueTsPluginLocation(),
-                languages = { "vue", "typescript", "javascript" },
-              },
-            },
-          },
-          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-        },
-        volar = {},
+        -- ts_ls = {
+        --   init_options = {
+        --     plugins = {
+        --       {
+        --         name = "@vue/typescript-plugin",
+        --         location = vueTsPluginLocation(),
+        --         languages = { "vue", "typescript", "javascript" },
+        --       },
+        --     },
+        --   },
+        --   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+        -- },
+        -- volar = {},
       }
 
       -- manuelly setup servers (that don't have a mason entry)
@@ -155,5 +152,25 @@ return {
         automatic_installation = true,
       })
     end,
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+
+        "vue",
+      },
+      settings = {
+        tsserver_plugins = {
+          -- Seemingly this is enough, no name, location or languages needed.
+          "@vue/typescript-plugin",
+        },
+      },
+    }
   },
 }
