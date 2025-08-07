@@ -1,42 +1,27 @@
 return {
-  -- LSP Plugins
+  -- LSP Pluginss
   {
-    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-    -- used for completion, annotations and signatures of Neovim apis
     "folke/lazydev.nvim",
     ft = "lua",
     opts = {
       library = {
-        -- Load luvit types when the `vim.uv` word is found
         { path = "luvit-meta/library", words = { "vim%.uv" } },
       },
     },
   },
   {
-    -- Main LSP Configuration
     "neovim/nvim-lspconfig",
     dependencies = {
       "folke/which-key.nvim",
-      -- Automatically install LSPs and related tools to stdpath for Neovim
       { "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
       "williamboman/mason-lspconfig.nvim",
-      -- "WhoIsSethDaniel/mason-tool-installer.nvim",
-
-      -- Useful status updates for LSP.
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { "j-hui/fidget.nvim", opts = {} },
-
-      -- Allows extra capabilities provided by nvim-cmp
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       local wk = require("which-key")
       local lspcfg = require("lspconfig")
 
-      --  This function gets run when an LSP attaches to a particular buffer.
-      --    That is to say, every time a new file is opened that is associated with
-      --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
-      --    function will be executed to configure the current buffer
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
         callback = function(event)
@@ -67,7 +52,6 @@ return {
         end,
       })
 
-      -- Change diagnostic symbols in the sign column (gutter)
       if vim.g.have_nerd_font then
         local signs = { ERROR = "", WARN = "", INFO = "", HINT = "" }
         local diagnostic_signs = {}
@@ -84,51 +68,26 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-      -- local function vueTsPluginLocation()
-      --   local mason_registry = require("mason-registry")
-      --
-      --   return ts_plugin_path
-      -- end
-
-      -- Enable the following language servers
-      -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
       local servers = {
         cssls = {},
         gopls = {},
         html = {},
         lua_ls = {
-          -- cmd = {...},
-          -- filetypes = { ...},
-          -- capabilities = {},
           settings = {
             Lua = {
               completion = {
                 callSnippet = "Replace",
               },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
             },
           },
         },
         sourcekit = {
           root_dir = lspcfg.util.root_pattern(".git", "Package.swift", "compile_commands.json"),
         },
-        -- ts_ls = {
-        --   init_options = {
-        --     plugins = {
-        --       {
-        --         name = "@vue/typescript-plugin",
-        --         location = vueTsPluginLocation(),
-        --         languages = { "vue", "typescript", "javascript" },
-        --       },
-        --     },
-        --   },
-        --   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-        -- },
-        -- volar = {},
+        vtsls = {},
+        vue_ls = {}
       }
 
-      -- manuelly setup servers (that don't have a mason entry)
       lspcfg.clangd.setup {
         cmd = { "clangd" },
         filetypes = { "c", "cpp", "objc", "objcpp" }, -- Only attach to C/C++
@@ -138,6 +97,39 @@ return {
         filetypes = { "swift", "objective-c", "objective-cpp" },
         root_dir = lspcfg.util.root_pattern("Package.swift", ".git"),
       }
+
+      local vue_language_server_path = vim.fn.stdpath('data') .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+      local vue_plugin = {
+        name = '@vue/typescript-plugin',
+        location = vue_language_server_path,
+        languages = { 'vue' },
+        configNamespace = 'typescript',
+      }
+      local vtsls_config = {
+        settings = {
+          vtsls = {
+            tsserver = {
+              globalPlugins = {
+                vue_plugin,
+              },
+            },
+          },
+        },
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+      }
+      local vue_ls_config = {}
+
+      vim.lsp.config('vtsls', vtsls_config)
+      vim.lsp.config('vue_ls', vue_ls_config)
+      vim.lsp.enable({'vtsls', 'vue_ls'})
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "vue",
+        callback = function()
+          vim.opt_local.backupcopy = "yes"
+        end,
+      })
+
 
       require("mason").setup()
       require("mason-lspconfig").setup({
@@ -152,25 +144,5 @@ return {
         automatic_installation = true,
       })
     end,
-  },
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-
-        "vue",
-      },
-      settings = {
-        tsserver_plugins = {
-          -- Seemingly this is enough, no name, location or languages needed.
-          "@vue/typescript-plugin",
-        },
-      },
-    }
   },
 }
