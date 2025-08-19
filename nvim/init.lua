@@ -25,6 +25,7 @@ require("addons/close-other-buffers")()
 require("addons/git-support")()
 require("addons/vue-auto-marks")()
 require("addons/virtual-line-margin")()
+require("addons/keymap")()
 
 -- All the colors
 vim.cmd.colorscheme("catppuccin")
