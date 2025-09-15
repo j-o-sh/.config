@@ -31,5 +31,6 @@ return function()
     { "<leader>b", group = "[b]uffers" },
     { "<leader>bo", "<CMD>BufOnly<CR>", desc = "[b]uffers: close [o]ther buffers" },
     { "<leader>bO", "<CMD>BufOnlyForce<CR>", desc = "[b]uffers: Force close [O]ther buffers!" },
+    { "<leader>bs", "<C-^>", desc = "[b]uffers: [S]witch to last buffer" },
   })
 end

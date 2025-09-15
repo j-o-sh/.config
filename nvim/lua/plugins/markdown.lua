@@ -5,5 +5,13 @@ return {
   ---@type render.md.UserConfig
   opts = {
     heading = { enabled = true },
+    quote = {
+      repeat_linebreak = true,
+    },
+    win_options = {
+      showbreak = '  ',
+      breakindent = 'true',
+      breakindentopt = '',
+    }
   },
 }
