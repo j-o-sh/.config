@@ -9,6 +9,8 @@ return {
       all = function(colors)
         return {
           LineNr = { fg = colors.overlay1 },
+          NormalFloat = { bg = "none" },
+          FloatBorder = { bg = "none" },
         }
       end,
     },
