@@ -19,9 +19,8 @@ This config includes configuration for [Neovim](https://neovim.io), tmux and z-s
 
 ## Painpoints
 
-* Neovim keybindings
-* Tmux Knowledge
 * Working with paste buffers in Neovim (replace for instance)
+* Misstakenly activating vim's macros
 
 
 ## General Key Maps
