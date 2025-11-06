@@ -11,4 +11,6 @@ return function()
 
   vim.keymap.set("n", "<leader>j", "<C-d>zz", { desc = "Half page down + center" })
   vim.keymap.set("n", "<leader>k", "<C-u>zz", { desc = "Half page up + center" })
+
+  vim.keymap.set('n', 'q', '<Nop>')
 end

@@ -21,6 +21,9 @@ This config includes configuration for [Neovim](https://neovim.io), tmux and z-s
 
 * Working with paste buffers in Neovim (replace for instance)
 * Misstakenly activating vim's macros
+* Misstakenly open help in vim 
+* MD plugin cutting the start and end of code blocks!
+* when renaming symbols I have no clue which files changed and they don't get saved!
 
 
 ## General Key Maps

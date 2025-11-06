@@ -32,5 +32,7 @@ return function()
     { "<leader>bo", "<CMD>BufOnly<CR>", desc = "[b]uffers: close [o]ther buffers" },
     { "<leader>bO", "<CMD>BufOnlyForce<CR>", desc = "[b]uffers: Force close [O]ther buffers!" },
     { "<leader>bs", "<C-^>", desc = "[b]uffers: [S]witch to last buffer" },
+    { "<leader>bn", "<cmd>bnext<CR>", desc = "[b]uffers: switch to next buffer" },
+    { "<leader>bp", "<cmd>bprev<CR>", desc = "[b]uffers: switch to previous buffer" },
   })
 end
