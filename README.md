@@ -24,6 +24,8 @@ This config includes configuration for [Neovim](https://neovim.io), tmux and z-s
 * Misstakenly open help in vim 
 * MD plugin cutting the start and end of code blocks!
 * when renaming symbols I have no clue which files changed and they don't get saved!
+* The Neovim status bar should at least disappear after a short amount of time... Reading some status update from 2 hours ago is very distracting.
+* Is there a way to re-distribute lines in markdown files (kinda like a linter/formater) so that I can always keep _real_ 80 chars OR have a soft-wrap at 80 chars in Markdown files only?
 
 
 ## General Key Maps
