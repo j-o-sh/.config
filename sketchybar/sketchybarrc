@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+bar=(
+  color=0x000000ff
+  border_color=0x00000000
+  border_width=0
+  corner_radius=35
+  blur_radius=0
+  height=35
+  margin=0
+  y_offset=0
+  padding_left=35
+  padding_right=35
+)
+
+sketchybar --bar "${bar[@]}"

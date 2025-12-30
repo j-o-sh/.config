@@ -1,6 +1,4 @@
 return function()
-  local wk = require("which-key")
-
   -- Function to close all buffers except the current one, keeping unsaved buffers
   function CloseOtherBuffers()
     local current_buf = vim.api.nvim_get_current_buf()
@@ -27,12 +25,42 @@ return function()
   vim.api.nvim_create_user_command("BufOnly", CloseOtherBuffers, {})
   vim.api.nvim_create_user_command("BufOnlyForce", ForceCloseOtherBuffers, {})
 
-  wk.add({
-    { "<leader>b", group = "[b]uffers" },
-    { "<leader>bo", "<CMD>BufOnly<CR>", desc = "[b]uffers: close [o]ther buffers" },
-    { "<leader>bO", "<CMD>BufOnlyForce<CR>", desc = "[b]uffers: Force close [O]ther buffers!" },
-    { "<leader>bs", "<C-^>", desc = "[b]uffers: [S]witch to last buffer" },
-    { "<leader>bn", "<cmd>bnext<CR>", desc = "[b]uffers: switch to next buffer" },
-    { "<leader>bp", "<cmd>bprev<CR>", desc = "[b]uffers: switch to previous buffer" },
-  })
+  local ok, wk = pcall(require, "which-key")
+  if ok then wk.add({{"<leaader>s", group = "[B]uffers"}}) end
+
+  vim.keymap.set(
+    "n",
+    "<leader>bo",
+    "<CMD>BufOnly<CR>",
+    { desc = "[b]uffers: close [o]ther buffers" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "<leader>bO",
+    "<CMD>BufOnlyForce<CR>",
+    { desc = "[b]uffers: Force close [O]ther buffers!" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "<leader>bs",
+    "<C-^>",
+    { desc = "[b]uffers: [S]witch to last buffer" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "<leader>bn",
+    "<cmd>bnext<CR>",
+    { desc = "[b]uffers: switch to next buffer" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "<leader>bp",
+    "<cmd>bprev<CR>",
+    { desc = "[b]uffers: switch to previous buffer" }
+  )
+
 end

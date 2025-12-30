@@ -2,7 +2,6 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
     { "echasnovski/mini.icons", version = false },
   },
   opts = {
@@ -14,10 +13,13 @@ return {
     spec = {
       { "<leader>?", "<cmd>WhichKey<CR>", desc = "WhichKey Index" },
 
-      { "<leader>r", group = "[r]epository" },
-      { "<leader>o", group = "[o]pen" },
+      { "<leader>b", group = "[b]uffers" },
       { "<leader>c", group = "[c]ode" },
+      { "<leader>f", group = "[f]ind" },
+      { "<leader>o", group = "[o]pen" },
       { "<leader>n", group = "[n]otify" },
+      { "<leader>r", group = "[r]epository" },
+      { "<leader>w", group = "[w]indow" },
     },
   },
 }
