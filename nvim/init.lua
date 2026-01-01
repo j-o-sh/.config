@@ -27,6 +27,7 @@ require("addons/vue-auto-marks")()
 require("addons/virtual-line-margin")()
 require("addons/keymap")()
 require("addons/floating-help")()
+require("addons/lsp")()
 
 -- All the colors
 vim.cmd.colorscheme("catppuccin")

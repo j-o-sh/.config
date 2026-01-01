@@ -16,6 +16,7 @@ return {
       { "<leader>b", group = "[b]uffers" },
       { "<leader>c", group = "[c]ode" },
       { "<leader>f", group = "[f]ind" },
+      { "<leader>l", group = "[l]sp" },
       { "<leader>o", group = "[o]pen" },
       { "<leader>n", group = "[n]otify" },
       { "<leader>r", group = "[r]epository" },

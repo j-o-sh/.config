@@ -1,16 +1,23 @@
+local function mapkey(sequence, command, description)
+  vim.keymap.set("n", "<leader>" .. sequence, command, { desc = description })
+end
+
 return function()
-  -- local ok, wk = pcall(require, "which-key")
-  -- if ok then wk.add({{"<leaader>s", group = "[S]plit buffer"}}) end
-
-  vim.keymap.set("n", "<leader>wh", "<C-w>s", { desc = "Split horizontally" })
-  vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split vertically" })
-  vim.keymap.set("n", "<leader>ws", "<C-w>w", { desc = "Switch active window" })
-  vim.keymap.set("n", "<leader>wS", "<C-w>W", { desc = "Switch active window backwards" })
-  vim.keymap.set("n", "<leader>wx", "<C-w>x", { desc = "Exchange current with next window" })
-  vim.keymap.set("n", "<leader>wc", "<cmd>only<CR>", { desc = "Close other windows" })
-
-  vim.keymap.set("n", "<leader>j", "<C-d>zz", { desc = "Half page down + center" })
-  vim.keymap.set("n", "<leader>k", "<C-u>zz", { desc = "Half page up + center" })
-
+  -- We don't like macros here!
   vim.keymap.set('n', 'q', '<Nop>')
+
+  mapkey("wh", "<C-w>s", "Split [h]orizontally")
+  mapkey("wv", "<C-w>v", "Split [v]ertically")
+  mapkey("ws", "<C-w>w", "[s]witch active window")
+  mapkey("wS", "<C-w>W", "[S]witch active window backwards")
+  mapkey("wx", "<C-w>x", "E[x]change current with next window")
+  mapkey("wc", "<cmd>only<CR>", "[c]lose other windows")
+
+  mapkey("j", "<C-d>zz", "Half page down + center")
+  mapkey("k", "<C-u>zz", "Half page up + center")
+
+
+  -- LSP Keys
+  -- mapkey()
+
 end
