@@ -1,9 +1,10 @@
 return {
   { 'nvim-mini/mini.icons',   version = '*', opts = true },
   { 'nvim-mini/mini.extra',   version = '*', opts = true },
-  { 'nvim-mini/mini.cmdline', version = '*', opts = true },
-  -- { 'nvim-mini/mini.surround', version = '*', opts = true },
-  -- { 'nvim-mini/mini.pairs',    version = '*', opts = true },
+  { 'nvim-mini/mini.cmdline', version = '*', opts = {
+    autocorrect = { enable = false },
+  } },
+
   {
     "echasnovski/mini.pick",
     version = "*",
