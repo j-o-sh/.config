@@ -3,7 +3,7 @@ return {
     opts = {
       ensure_installed = {
         "clangd",
-        "lua-ls",
+        -- "lua-language-server",
         -- "sourcekit-lsp",
         "vtsls",
       },

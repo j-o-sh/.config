@@ -27,6 +27,7 @@ return {
                 vim.schedule(function() list.accept({ index = 1 }) end)
                 return true
               else
+                print(list.selected_item_idx)
                 return cmp.select_next()
               end
             end
@@ -77,8 +78,15 @@ return {
         nerd_font_variant = 'mono'
       },
 
-      -- (Default) Only show the documentation popup when manually triggered
-      completion = { documentation = { auto_show = false } },
+      completion = {
+        documentation = { auto_show = false },
+        list = {
+          selection = {
+            preselect = false,
+            auto_insert = false,
+          }
+        }
+      },
 
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
