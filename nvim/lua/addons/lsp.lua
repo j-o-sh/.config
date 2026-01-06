@@ -4,6 +4,8 @@ return function()
   })
   vim.lsp.enable("sourcekit")
 
+  vim.lsp.enable("pug")
+
 
   vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("lsp-maps", { clear = true }),
