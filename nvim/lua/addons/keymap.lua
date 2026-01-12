@@ -17,6 +17,7 @@ return function()
   mapkey("k", "<C-u>zz", "Half page up + center")
 
 
+  mapkey("cd", vim.diagnostic.open_float, "[c]ode [d]iagnostics")
   -- LSP Keys
   -- mapkey()
 

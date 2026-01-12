@@ -9,7 +9,7 @@ if [[ -f "$HOME/.ssh/ca-bundle.crt" ]]; then
 fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH="$HOME/.config/bin:$HOME/.local/bin:$HOME/.mint/bin:$PATH"
+export PATH="$HOME/.config/bin:$HOME/.local/bin:$HOME/.mint/bin:$HOME/.cargo/bin:$PATH"
 
 source "$HOME/.config/zsh/system-theme"
 source "$HOME/.config/zsh/alias"
