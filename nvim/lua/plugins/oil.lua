@@ -20,5 +20,5 @@ return {
       { "<leader>op", "<CMD>Oil . --float<CR>", desc = "[o]pen [c]urrent directory"},
     }
   },
-  { "benomahony/oil-git.nvim" }
+  -- { "benomahony/oil-git.nvim" }
 }
