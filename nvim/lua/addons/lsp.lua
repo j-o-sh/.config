@@ -8,6 +8,21 @@ return function()
 
 
   -- Javascript and Vue
+  vim.lsp.config("biome", {
+    cmd = { "biome", "lsp-proxy" },
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "json",
+      "jsonc",
+    },
+    root_markers = { "biome.json", "biome.jsonc", ".git" },
+  })
+
+  vim.lsp.enable("biome")
+
   local vue_language_server_path = vim.fn.stdpath('data') .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
   local vue_plugin = {
     name = '@vue/typescript-plugin',
@@ -44,6 +59,7 @@ return function()
       end
 
       key('a', vim.lsp.buf.code_action, "[l]sp: code [a]ction")
+      key('md', vim.diagnostic.goto_next, "[l]sp: [m]ove to next [d]iagnosic")
       key('f', vim.lsp.buf.format, "[l]sp: code [f]format")
       key('h', vim.lsp.buf.hover, "[l]sp: show [h]over documentation")
       key('H', vim.lsp.buf.signature_help, "[l]sp: show signature [H]elp")
