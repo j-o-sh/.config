@@ -6,6 +6,7 @@ return {
   opts = {
     code = {
       border = 'thick',
-    }
+    },
+    ft = { "markdown", "codecompanion" }
   },
 }
