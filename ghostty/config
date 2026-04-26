@@ -1,7 +1,7 @@
 font-family = "Maple Mono NF"
 font-size = 15
 
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 background-opacity = 0.8
 background-blur = 20
