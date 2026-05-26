@@ -21,12 +21,88 @@ return function()
     end
   end
 
+  function FloatCurrentBuffer()
+    local current_buf = vim.api.nvim_get_current_buf()
+    local origin_win = vim.api.nvim_get_current_win()
+    local windows = vim.api.nvim_list_wins()
+
+    -- Bail if this is literally the only window + buffer
+    if #windows == 1 then
+      local listed = vim.tbl_filter(function(buf)
+        return vim.fn.buflisted(buf) == 1
+      end, vim.api.nvim_list_bufs())
+
+      if #listed <= 1 then
+        vim.notify("Cannot float the only remaining buffer", vim.log.levels.WARN)
+        return
+      end
+    end
+
+    -- Try to swap origin window to alternate buffer
+    local alt_buf = vim.fn.bufnr("#")
+
+    local replaced_origin = false
+
+    if
+      alt_buf ~= -1
+      and alt_buf ~= current_buf
+      and vim.api.nvim_buf_is_valid(alt_buf)
+      and vim.fn.buflisted(alt_buf) == 1
+      then
+        vim.api.nvim_win_set_buf(origin_win, alt_buf)
+        replaced_origin = true
+      end
+
+      -- Create floating window with current buffer
+      local width = math.floor(vim.o.columns * 0.85)
+      local height = math.floor(vim.o.lines * 0.85)
+
+      local row = math.floor((vim.o.lines - height) / 2)
+      local col = math.floor((vim.o.columns - width) / 2)
+
+      local float_win = vim.api.nvim_open_win(current_buf, true, {
+        relative = "editor",
+        style = "minimal",
+        border = "rounded",
+        width = width,
+        height = height,
+        row = row,
+        col = col,
+      })
+
+      -- If origin window couldn't display another buffer,
+      -- and there are still other windows around, close it
+      if not replaced_origin then
+        if vim.api.nvim_win_is_valid(origin_win) then
+          local remaining_windows = vim.api.nvim_list_wins()
+
+          if #remaining_windows > 1 then
+            vim.api.nvim_win_close(origin_win, false)
+          end
+        end
+      end
+
+      -- ESC closes float
+      vim.keymap.set("n", "<Esc>", function()
+        if vim.api.nvim_win_is_valid(float_win) then
+          vim.api.nvim_win_close(float_win, false)
+        end
+      end, {
+      buffer = current_buf,
+      nowait = true,
+      silent = true,
+      desc = "Close floating window",
+    })
+  end
+
+
   -- Create commands for easy access
   vim.api.nvim_create_user_command("BufOnly", CloseOtherBuffers, {})
   vim.api.nvim_create_user_command("BufOnlyForce", ForceCloseOtherBuffers, {})
+  vim.api.nvim_create_user_command("BufFloat", FloatCurrentBuffer, {})
 
   local ok, wk = pcall(require, "which-key")
-  if ok then wk.add({{"<leaader>s", group = "[B]uffers"}}) end
+  if ok then wk.add({{"<leader>b", group = "[B]uffers"}}) end
 
   vim.keymap.set(
     "n",
@@ -40,6 +116,20 @@ return function()
     "<leader>bO",
     "<CMD>BufOnlyForce<CR>",
     { desc = "[b]uffers: Force close [O]ther buffers!" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "<leader>bc",
+    "<CMD>bd<CR>",
+    { desc = "[b]uffers: close [c]urrent buffer" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "<leader>bC",
+    "<CMD>bd!<CR>",
+    { desc = "[b]uffers: Force close [C]urrent buffer!" }
   )
 
   vim.keymap.set(
@@ -61,6 +151,13 @@ return function()
     "<leader>bp",
     "<cmd>bprev<CR>",
     { desc = "[b]uffers: switch to previous buffer" }
+  )
+
+  vim.keymap.set(
+    "n",
+    "<leader>bf",
+    "<CMD>BufFloat<CR>",
+    { desc = "[b]uffers: pop into [f]loat" }
   )
 
 end
