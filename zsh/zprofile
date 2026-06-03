@@ -10,6 +10,7 @@ fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.config/bin:$HOME/.local/bin:$HOME/.mint/bin:$HOME/.cargo/bin:$PATH"
+export EDITOR="nvim"
 
 source "$HOME/.config/zsh/system-theme"
 source "$HOME/.config/zsh/alias"
