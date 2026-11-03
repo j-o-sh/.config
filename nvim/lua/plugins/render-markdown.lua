@@ -7,6 +7,6 @@ return {
     code = {
       border = 'thick',
     },
-    ft = { "markdown", "codecompanion" }
+    -- ft = { "markdown", "codecompanion" }
   },
 }

@@ -1,0 +1,10 @@
+[mgr]
+ratio = [0, 3, 4]
+
+# [opener.drill-in]
+# run = "???"
+#
+# [open.rules]
+# mine = "???"
+# use = "drill-in"
+#

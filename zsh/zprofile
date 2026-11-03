@@ -14,6 +14,7 @@ fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.config/bin:$HOME/.local/bin:$HOME/.mint/bin:$HOME/.cargo/bin:$PATH"
+export EDITOR="nvim"
 
 export OLLAMA_HOST=http://blackpearl.local:12345
 

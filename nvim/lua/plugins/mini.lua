@@ -22,6 +22,10 @@ return {
           }
         end,
       },
+      mappings = {
+        choose_marked = '<C-l>',
+        scroll_right = "",
+      }
     },
     keys = {
       { "<leader>ff", function() require("mini.pick").builtin.files() end,     desc = "[f]ind [f]iles" },
