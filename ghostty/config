@@ -6,6 +6,8 @@ theme = Catppuccin Mocha
 background-opacity = 0.8
 background-blur = 20
 
+keybind = cmd+t=unbind
+keybind = cmd+w=unbind
 window-padding-x = 10,20
 window-padding-y = 10,20
 window-padding-balance = true
